@@ -1,13 +1,17 @@
+<?php
+session_start();
+$name = $_SESSION['name'];
+?>
 <!DOCTYPE html>
-<html lang="zxx">
-
-
+<html lang="en">
 <head>
-	<title>Add Examinee</title>
-	<meta charset="UTF-8">
-	<meta name="description" content="Create Exam">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
 
-	 <!-- Font Awesome Icons -->
+    <title>Admin</title>
+
+    <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="../css/all.min.css">
     <!-- overlayScrollbars -->
     <link rel="stylesheet" href="../css/OverlayScrollbars.min.css">
@@ -15,27 +19,13 @@
     <link rel="stylesheet" href="../dist/css/adminlte.min.css">
     <!-- Google Font: Source Sans Pro -->
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
-
-	<!-- Google font -->
-	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
-	<!-- Stylesheets -->
-	<link rel="stylesheet" href="../css/bootstrap.min.css"/>
-	<link rel="stylesheet" href="../css/font-awesome.min.css"/>
-	<link rel="stylesheet" href="../css/owl.carousel.min.css"/>
-	<link rel="stylesheet" href="../css/flaticon.css"/>
-	<link rel="stylesheet" href="../css/slicknav.min.css"/>
-
+	
 	<!-- Main Stylesheets -->
-	<link rel="stylesheet" href="../css/style2.css"/>
-	
-	
-	
+    <link rel="stylesheet" href="../css/style2.css"/>
 </head>
 <body class="hold-transition sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">
-
-   <!-- Navbar -->
+<div class="wrapper">
+    <!-- Navbar -->
 <?php
 include 'navbar.php';
 ?>
@@ -48,86 +38,68 @@ include 'sidebar.php';
 <?php
 include 'footer1.php';
 ?>
-    <!-- /.navbar -->
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <section class="content-header">
+            <div class="container-fluid">
+                <div class="row mb-2">
+                    <div class="col-sm-6">
+                        <h1>Exam Information</h1>
+                    </div>
+                    
+                </div>
+            </div><!-- /.container-fluid -->
+        </section>
+    <div class="container">
 
-<div class="container">	
-<!---->
-<br>
-<br>
-<span> <button class="site-btn" id="button" style="float:right"  name="mcq" > Add MCQ</span></button><br><br><br>
-<span> <button class="site-btn" id="essayButton" style="float:right"  name="essay" > Add Essay</span></button>	
+  	<hr>
+      <!-- edit form column -->         
+        <form class="form-group" action="create_exam.php" method="post">
+            <div class="col-lg-6">
+                <select name="examType" class="form-control">
+                  
+				  
+                </select>
+				
+				<br><input type="number" placeholder="Exam version" name="examVersion" class="form-control">
+				<br><input type="number" placeholder="Exam duration in hours" name="examDuration" class="form-control">
+				<br><input type="number" placeholder="Passing grade" name="passingGrade" class="form-control">
 
-<!------------------------ MCQ Question ------------------------------->
-<div id="myModal" class="modal" >
-
- 
-  <div class="modal-content" style="float:right; margin-right:5%;">
-    <div class="modal-header">
-      <span class="close">&times;</span>
-    </div>
-    <div class="modal-body">	
+            </div>
+			
+			<br><br><br><button class="site-btn" type="submit" id="button" style=" min-width: 128px ;float:right"  name="next" >Next</button>
+             
+			 </form>
 		
-	<div id="login-form">
-	<form method="post">
-		<input type="text" placeholder="Enter Question" name="McqQuestion" required>
-		<!---------------------------------- Choices ------------------------------>
-		<div class="container">
-			<div class="form-group">
-				<form name="add_name" id="add_name">
-					<div class="table-responsive">
-						<table class="table" id="dynamic_field">
-							
-								<td><input type="text" name="name[]" placeholder="Enter correct choice" style= "display:inline-block; margin:5px;" class="form-control name_list" required/></td>
-								<td><button name="add" id="add" style="display:inline-block; margin:5px;" class="btn btn-success">+</button></td>
-						</table>
-						</div>
-				</form>
-			</div>
-		</div>
-		  </form>
-     <br> <button  class="site-btn" style="float:right; margin:10px;">Add Question</button>
-	</div>
- </div>
-
-    </div>
-  
   </div>
-  
-<!------------------------ Essay Question ------------------------------->
-<div id="myModalEssay" class="modal">
+</div>
 
- 
-  <div class="modal-content"  style="float:right; margin-right:5%;">
-    <div class="modal-header">
-      <span class="close">&times;</span>
-    </div>
-    <div class="modal-body">	
-		
-	<div id="login-form">
-	<form method="post">
-		<input type="text" placeholder="Enter Question" name="essayQuestion" required>
-		
-		  </form>
-		  
-     <br> <button  class="site-btn" style="float:right; margin:10px;">Add Question</button>
-	</div>
- </div>
+    <!-- /.content-wrapper -->
+    <footer class="main-footer">
+        <div class="float-right d-none d-sm-block">
+            <b>Version</b> 3.0.2-pre
+        </div>
+        <strong>Copyright &copy; 2014-2019 <a href="http://adminlte.io">AdminLTE.io</a>.</strong> All rights
+        reserved.
+    </footer>
 
-    </div>
-  
-  </div>
-	
-	
-	<!--====== Javascripts & Jquery ======-->
-	<script src="../js/jquery-3.2.1.min.js"></script>
-	<script src="../js/bootstrap.min.js"></script>
-	<script src="../js/jquery.slicknav.min.js"></script>
-	<script src="../js/owl.carousel.min.js"></script>
-	<script src="../js/jquery-ui.min.js"></script>
-	<script src="../js/main.js"></script>
-	<script src="../js/modal.js"></script>
-	<script src="../js/fonts_awesomes.js"></script>
-	<script src="../js/add_choice.js"></script>
+    <!-- Control Sidebar -->
+    <aside class="control-sidebar control-sidebar-dark">
+        <!-- Control sidebar content goes here -->
+    </aside>
+    <!-- /.control-sidebar -->
+</div>
+<!-- ./wrapper -->
 
-	</body>
+<!-- jQuery -->
+<script src="../plugins/jquery/jquery.min.js"></script>
+<!-- Bootstrap 4 -->
+<script src="../js/bootstrap.bundle.min.js"></script>
+<!-- AdminLTE App -->
+<script src="../dist/js/adminlte.min.js"></script>
+<!-- AdminLTE for demo purposes -->
+<script src="../dist/js/demo.js"></script>
+<script src="../js/fonts_awesomes.js"></script>
+</body>
 </html>

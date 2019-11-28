@@ -7,7 +7,7 @@ $name = $_SESSION['name'];
 
 
 <head>
-	<title>Add Examinee</title>
+	<title>Add Exam</title>
 	<meta charset="UTF-8">
 	<meta name="description" content="Create Exam">
 
@@ -54,13 +54,31 @@ include 'footer1.php';
 ?>
     <!-- /.navbar -->
 
-<div class="container">	
-<!---->
-<br>
-<br>
-<span> <button class="site-btn" id="button" style="float:right"  name="mcq" > Add MCQ</span></button><br><br><br>
-<span> <button class="site-btn" id="essayButton" style="float:right"  name="essay" > Add Essay</span></button>	
-
+	
+	  <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <section class="content-header">
+            <div class="container-fluid">
+                <div class="row mb-2">
+                    <div class="col-sm-6">
+                        <h1>Questions</h1>
+                    </div>
+		 </section>	 	
+	
+	<div class="container" >
+	
+	<!---------------------------- Retrieving Questions------------------------------->	
+	     <!--- TODO 
+		 <table style="width:50%;">
+		 	<tr> This is a question. </tr><hr>
+			<tr> This is another question.</tr><hr>
+		 </table> -->
+		 
+	<!----------------------------------------------------------------------------------->						       
+				  
+    <span> <button  class="site-btn" id="button" style=" margin:0%; min-width: 128px ;float:right;"  name="mcq" > Add MCQ</span></button><br><br><br>
+	<span> <button  class="site-btn" id="essayButton" style="margin:0%; min-width: 128px ;float:right"  name="essay" > Add Essay</span></button><br><br><br>
+	<span> <button  class="site-btn"  style="margin:0%; min-width: 128px ;float:right"  type="submit" > Submit</span></button>
 <!------------------------ MCQ Question ------------------------------->
 <div id="myModal" class="modal" >
 
@@ -121,11 +139,13 @@ include 'footer1.php';
   
   </div>
 	
-		<?php
-#include 'footer1.php';
-?>
+                </div>
+				
+            </div><!-- /.container-fluid -->
+       
+			 
+		</div>
 	<!--====== Javascripts & Jquery ======-->
-	<script src="../js/jquery-3.2.1.min.js"></script>
 	<script src="../js/bootstrap.min.js"></script>
 	<script src="../js/jquery.slicknav.min.js"></script>
 	<script src="../js/owl.carousel.min.js"></script>
@@ -134,7 +154,8 @@ include 'footer1.php';
 	<script src="../js/modal.js"></script>
 	<script src="../js/fonts_awesomes.js"></script>
 	<script src="../js/add_choice.js"></script>
-
+	<script src="../js/search_bar.js"></script>
+	
 	</body>
 
 </html>
