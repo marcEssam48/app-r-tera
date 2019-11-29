@@ -21,7 +21,7 @@
                     <!-- Add icons to the links using the .nav-icon class
                          with font-awesome or any other icon font library -->
                     <li class="nav-item">
-                        <a href="admin_home.php" class="nav-link">
+                        <a href="admin.php" class="nav-link">
                             <i class=" fas fa-th"></i>
                             <p>
                                 Dashboard
@@ -105,6 +105,14 @@
                             <i class="fas fa-list"></i>
                             <p>
                                 View Exam versions
+                            </p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="../Controllers/logout_controller.php" class="nav-link">
+                            <i class="fas fa-sign-out-alt"></i>
+                            <p>
+                                Sign out
                             </p>
                         </a>
                     </li>
